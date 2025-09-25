@@ -1,0 +1,33 @@
+<form class="flex flex-col md:flex-row gap-4 items-end" [formGroup]="form">
+  <div class="flex-1">
+    <input
+      type="text"
+      placeholder="Search in content"
+      class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+      formControlName="search"
+    />
+  </div>
+
+  <div class="flex-1">
+    <select
+      class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+      formControlName="userId"
+    >
+      <option value="">All users</option>
+      @for (user of users(); track user.id) {
+      <option [value]="user.id">{{ user.name }}</option>
+      }
+    </select>
+  </div>
+
+  <div
+    class="flex-1 flex items-center gap-3 cursor-pointer bg-gradient-to-r from-purple-50 to-pink-50 px-4 py-3 rounded-xl border border-purple-100 hover:from-purple-100 hover:to-pink-100 transition-colors"
+  >
+    <input
+      type="checkbox"
+      formControlName="onlyFavorites"
+      class="w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 focus:ring-2"
+    />
+    <span class="text-sm font-medium text-gray-700">Only favorites</span>
+  </div>
+</form>
