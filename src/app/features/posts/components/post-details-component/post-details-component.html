@@ -1,0 +1,31 @@
+@if (!loading() || (post() && author() && comments())) {
+<div class="bg-gray-50 rounded-lg shadow p-4 mt-2 transition-colors">
+  <div class="flex justify-between items-center mb-2">
+    <h1 class="font-bold text-xl text-gray-900">{{ post()!.title }}</h1>
+  </div>
+  <p class="mb-4 text-gray-700">{{ post()!.body }}</p>
+
+  <div class="text-right text-sm text-gray-600">
+    <a [href]="'mailto:' + author()!.email" class="text-pink-600 hover:underline">{{
+      author()!.name
+    }}</a>
+  </div>
+  <div class="mt-4">
+    <h3 class="font-semibold text-gray-900">Comments:</h3>
+    <ul>
+      @for (comment of comments(); track comment.id) {
+      <li class="border-b border-gray-200 py-2 text-gray-700">
+        <div class="font-semibold text-sm mb-1">
+          {{ comment.name }} (<a
+            [href]="'mailto:' + comment.email"
+            class="text-pink-600 hover:underline"
+            >{{ comment.email }}</a
+          >)
+        </div>
+        <div>{{ comment.body }}</div>
+      </li>
+      }
+    </ul>
+  </div>
+</div>
+}

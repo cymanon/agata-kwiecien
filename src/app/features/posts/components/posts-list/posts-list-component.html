@@ -13,10 +13,26 @@
           {{ post.title }}
         </h2>
         <div class="flex items-center gap-2">
-          <!-- TBD button -->
-          <!-- TBD details -->
+          <button
+            class="inline-flex items-center justify-center w-10 h-10 bg-white dark:bg-gray-800 border border-purple-200 dark:border-purple-700 rounded-full text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300 hover:scale-105 ml-2"
+            (click)="toggleDetails(post.id)"
+            [title]="selectedPostId === post.id ? 'Hide details' : 'View details'"
+          >
+            <i
+              class="fas fa-chevron-down text-lg transition-transform duration-300"
+              [class.rotate-180]="selectedPostId === post.id"
+            ></i>
+          </button>
         </div>
+        <!-- tbd loading na tym poziomie czy nizej? -->
       </div>
+      @if(selectedPostId === post.id) {
+      <app-post-details-component
+        [post]="post"
+        [author]="author()"
+        [comments]="comments()[post.id]"
+        [loading]="false"
+      />}
     </div>
     }
   </div>

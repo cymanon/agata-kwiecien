@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Post } from '../../shared/models/Post';
 import { User } from '../../shared/models/User';
+import { Comment } from '../../shared/models/Comment';
 
 @Injectable({
   providedIn: 'root',
