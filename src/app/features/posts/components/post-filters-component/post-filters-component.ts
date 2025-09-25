@@ -9,7 +9,7 @@ import { DataService } from '../../../../core/services/data-service';
   templateUrl: './post-filters-component.html',
   host: {
     class:
-      'w-full bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-purple-100 mb-8',
+      'w-full max-w-4xl bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-purple-100 mb-8',
   },
 })
 export class PostFiltersComponent {

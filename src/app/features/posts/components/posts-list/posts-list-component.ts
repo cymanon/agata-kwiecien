@@ -11,6 +11,10 @@ import { PostFiltersComponent } from '../post-filters-component/post-filters-com
   selector: 'app-posts-list-component',
   imports: [PostDetailsComponent, NgClass, PostFiltersComponent],
   templateUrl: './posts-list-component.html',
+  host: {
+    class:
+      'h-full w-full flex flex-col items-center bg-gradient-to-br from-purple-50 via-white to-pink-50 p-4',
+  },
 })
 export class PostsListComponent {
   private readonly dataService: DataService = inject(DataService);

@@ -21,5 +21,6 @@ export class ResourceService {
 
   getComments(postId: number) {
     return this.httpClient.get<Array<Comment>>(`${this.baseUrl}/posts/${postId}/comments`);
+    // tbd load more than 100
   }
 }
